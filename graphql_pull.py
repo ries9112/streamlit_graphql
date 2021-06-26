@@ -11,7 +11,7 @@ address = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf7619
 
 # Choose query to run
 query = """query {
-  account(id: "0x00000000af5a61acaf76190794e3fdf1289288a1") {
+  account(id: {} ) {
     id
     tokens(first: 7) {
       id
@@ -24,7 +24,7 @@ query = """query {
     symbol
   }
 }
-"""
+""".format(address)
 
 # Point to correct subgraph URL
 url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
