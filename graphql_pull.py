@@ -24,7 +24,7 @@ query = '''query {
     symbol
   }
 }
-''' % (address)
+''' % address
 
 # Point to correct subgraph URL
 url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
@@ -45,7 +45,7 @@ df = pd.DataFrame(df_data)
 st.text('Breakdown of tokens for {} address on the ETH blockchain'.format(address))
 
 # Show dataframe
-st.write(df)
+st.write(query)
 
 
 
