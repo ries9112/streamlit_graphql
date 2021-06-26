@@ -7,7 +7,7 @@ import pandas as pd
 st.title('Pulling data from GraphQL')
 
 # Add a selectbox to enter address lookup:
-address = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf76190794e3fdf1289288a1")
+address = st.text_input("Enter ETH wallet to look up", "0x8115AfD8DFfCE5579381AD27524b6Feeae917BEF")
 
 # Set query (which uses text input to specify ETH wallet address)
 query = '''query {
@@ -44,7 +44,7 @@ r = requests.post(url, json={'query': query})
 json_data = json.loads(r.text)
 
 # extract JSON to convert to a dataframe
-df_data = json_data['data']['account']['tokens']
+df_data = json_data['data']['swaps']
 # convert to dataframe
 df = pd.DataFrame(df_data)    
 
