@@ -49,7 +49,7 @@ df_data = json_data['data']['swaps']
 df = pd.DataFrame(df_data)    
 
 # Add text before the table
-st.text('Breakdown of swaps for {} ETH wallet address'.format(address))
+st.text('Breakdown of Uniswap swaps for {} ETH wallet address'.format(address))
 
 # Show dataframe
 st.write(df)
