@@ -6,8 +6,8 @@ import pandas as pd
 # Add title
 st.title('Pulling data from GraphQL')
 
-# Add a selectbox to the sidebar:
-user_input = st.sidebar.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf76190794e3fdf1289288a1")
+# Add a selectbox to enter address lookup:
+user_input = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf76190794e3fdf1289288a1")
 
 # Choose query to run
 query = """query {
