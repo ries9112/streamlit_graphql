@@ -44,5 +44,5 @@ df = pd.DataFrame(df_data)
 # Show dataframe
 st.write(df)
 
-st.text('Breakdown of tokens for {} address on the ETH blockchain').format(address)
+st.text('Breakdown of tokens for {} address on the ETH blockchain'.format(address))
 
