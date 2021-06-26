@@ -26,6 +26,24 @@ query = '''query {
 }
 ''' % address
 
-st.text(query)
+# Point to correct subgraph URL
+url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
+# Make the request
+r = requests.post(url, json={'query': query})
+#print(r.status_code)
+#print(r.text)
 
+# JSON adjustment
+json_data = json.loads(r.text)
+
+# extract JSON to convert to a dataframe
+df_data = json_data['data']['account']['tokens']
+# convert to dataframe
+df = pd.DataFrame(df_data)    
+
+# Add text before the table
+st.text('Breakdown of tokens for {} address on the ETH blockchain'.format(address))
+
+# Show dataframe
+st.write(df)
 
