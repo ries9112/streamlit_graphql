@@ -41,8 +41,11 @@ df_data = json_data['data']['account']['tokens']
 # convert to dataframe
 df = pd.DataFrame(df_data)    
 
+# Add text before the table
+st.text('Breakdown of tokens for {} address on the ETH blockchain'.format(address))
+
 # Show dataframe
 st.write(df)
 
-st.text('Breakdown of tokens for {} address on the ETH blockchain'.format(address))
+
 
