@@ -4,7 +4,7 @@ import json
 import pandas as pd
 
 # Add title
-st.title('Pulling data from GraphQL')
+st.title('Pulling Uniswap data from GraphQL')
 
 # Add a selectbox to enter address lookup:
 address = st.text_input("Enter ETH wallet to look up", "0x8115AfD8DFfCE5579381AD27524b6Feeae917BEF")
