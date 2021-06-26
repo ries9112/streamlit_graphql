@@ -9,25 +9,32 @@ st.title('Pulling data from GraphQL')
 # Add a selectbox to enter address lookup:
 address = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf76190794e3fdf1289288a1")
 
-# Choose query to run
+# Set query (which uses text input to specify ETH wallet address)
 query = '''query {
-  account(id: "%s" ) {
+  swaps(where: {recipient: "%s"}){
     id
-    tokens(first: 7) {
-      id
-      symbol
-      cTokenBalance
+    timestamp
+    pool{
+      token0{
+        symbol
+      }
+      token1{
+        symbol
+      }
     }
-  }
-  markets {
-    exchangeRate
-    symbol
+    amount0
+    amount1
+    amountUSD
+    sender
+    recipient
+    tick
   }
 }
+
 ''' % address
 
 # Point to correct subgraph URL
-url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
+url = 'https://api.thegraph.com/subgraphs/name/benesjan/uniswap-v3-subgraph'
 # Make the request
 r = requests.post(url, json={'query': query})
 #print(r.status_code)
