@@ -11,7 +11,7 @@ address = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf7619
 
 # Choose query to run
 query = '''query {
-  account(id: %s ) {
+  account(id: "%s" ) {
     id
     tokens(first: 7) {
       id
