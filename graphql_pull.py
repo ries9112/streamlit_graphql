@@ -24,7 +24,7 @@ query = f'''query {
     symbol
   }
 }
-'''.format(address)
+'''
 
 # Point to correct subgraph URL
 url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
