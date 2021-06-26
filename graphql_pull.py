@@ -10,8 +10,8 @@ st.title('Pulling data from GraphQL')
 address = st.text_input("Enter ETH wallet to look up", "0x00000000af5a61acaf76190794e3fdf1289288a1")
 
 # Choose query to run
-query = f'''query {
-  account(id: {address} ) {
+query = '''query {
+  account(id: %s ) {
     id
     tokens(first: 7) {
       id
@@ -24,7 +24,7 @@ query = f'''query {
     symbol
   }
 }
-'''
+''' % (address)
 
 # Point to correct subgraph URL
 url = 'https://api.thegraph.com/subgraphs/name/graphprotocol/compound-v2'
